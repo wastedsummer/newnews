@@ -1,2 +1,2 @@
 # newnews
-Predict the Trajectory of News Timelines
+Predict the Trajectory of News Timelines...
