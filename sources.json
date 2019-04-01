@@ -1,0 +1,7 @@
+{
+	"newyorktimes": "http://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+	"aljazeera": "https://www.aljazeera.com/xml/rss/all.xml",
+	"bbc": "http://feeds.bbci.co.uk/news/world/rss.xml",
+	"theguardian": "https://www.theguardian.com/world/rss",
+	"reuters": "http://feeds.reuters.com/Reuters/worldNews"
+}
