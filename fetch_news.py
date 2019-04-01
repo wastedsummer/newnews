@@ -4,6 +4,11 @@ from feed_utils import FeedEntry
 import re
 import json
 import feedparser
+import datetime
+
+
+
+now = datetime.datetime.now()
 
 
 with open(PATH + 'sources.json') as json_file:  
@@ -23,12 +28,24 @@ def get_tags(feed):
 
 
 
+
 # test
 guardian_feed = feedparser.parse(sources['theguardian'])
 
-print(guardian_feed['entries'][0].keys())
-print('\n')
-print(FeedEntry.clear_html(guardian_feed['entries'][0]['summary']))
-print('\n')
 
+# example on how to create entry objects for every current feed entry
+for i in range(len(guardian_feed)):
+
+
+	test_entry = FeedEntry(
+		now.date(),
+		"test",
+		None,
+		get_headlines(guardian_feed)[i],
+		get_summaries(guardian_feed)[i],
+		get_tags(guardian_feed)[i]
+		)
+
+
+	print(test_entry.title)
 
