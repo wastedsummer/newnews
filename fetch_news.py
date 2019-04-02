@@ -40,7 +40,6 @@ for i in range(len(guardian_feed)):
 	test_entry = FeedEntry(
 		now.date(),
 		"test",
-		None,
 		get_headlines(guardian_feed)[i],
 		get_summaries(guardian_feed)[i],
 		get_tags(guardian_feed)[i]
@@ -48,4 +47,10 @@ for i in range(len(guardian_feed)):
 
 
 	print(test_entry.title)
+	print('\n')
+	print(test_entry.get_summary)
+	print('\n')
+	print(test_entry.tags)
+	print('\n')
+	print('\n')
 
