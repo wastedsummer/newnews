@@ -39,7 +39,6 @@ for i in range(len(guardian_feed)):
 
 	test_entry = FeedEntry(
 		now.date(),
-		"test",
 		get_headlines(guardian_feed)[i],
 		get_summaries(guardian_feed)[i],
 		get_tags(guardian_feed)[i]
