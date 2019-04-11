@@ -33,6 +33,7 @@ def get_tags(feed):
 guardian_feed = feedparser.parse(sources['theguardian'])
 
 
+
 # example on how to create entry objects for every current feed entry
 for i in range(len(guardian_feed)):
 
@@ -41,8 +42,7 @@ for i in range(len(guardian_feed)):
 		now.date(),
 		get_headlines(guardian_feed)[i],
 		get_summaries(guardian_feed)[i],
-		get_tags(guardian_feed)[i]
-		)
+		get_tags(guardian_feed)[i])
 
 
 	print(test_entry.title)
