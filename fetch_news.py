@@ -18,14 +18,14 @@ with open(PATH + 'sources.json') as json_file:
 
 
 def get_headlines(feed):
-	return [feed['entries'][i]['title'] for i in range(len(feed['entries']))]
+	return [feed['entries'][i]['title'] for i in range(len(feed['entries'])) if 'tags' in feed['entries'][i].keys()]
 
 def get_summaries(feed):
-	return [feed['entries'][i]['summary'] for i in range(len(feed['entries']))]
+	return [feed['entries'][i]['summary'] for i in range(len(feed['entries'])) if 'tags' in feed['entries'][i].keys()]
 
 def get_tags(feed):
-	return [feed['entries'][i]['tags'] for i in range(len(feed['entries']))]
-
+	return [feed['entries'][i]['tags'] for i in range(len(feed['entries'])) if 'tags' in feed['entries'][i].keys()]
+	# return [feed['entries'][i]['tags'] for i in range(len(feed))]
 
 
 
@@ -33,10 +33,8 @@ def get_tags(feed):
 guardian_feed = feedparser.parse(sources['theguardian'])
 
 
-
 # example on how to create entry objects for every current feed entry
 for i in range(len(guardian_feed)):
-
 
 	test_entry = FeedEntry(
 		now.date(),
