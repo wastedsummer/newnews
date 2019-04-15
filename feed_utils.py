@@ -1,20 +1,16 @@
 import feedparser
 import re
-from gensim.test.utils import common_texts
-from gensim.models.doc2vec import Doc2Vec, TaggedDocument
-
 
 
 class FeedEntry():
 	""" Data model for a fetched feed entry. """
-	def __init__(self, date, title, summary, tags):
+	def __init__(self, date, title, summary):
 		# meta
 		self.date = date
 		# self.country = country # maybe not necessary
 		# data
 		self.title = title
 		self.summary = summary
-		self.tags = tags
 
 
 
@@ -28,12 +24,7 @@ class FeedEntry():
 		pass
 
 	@property
-	def get_tags_vector(self):
-		pass
-
-
-	@property
-	def get_overall_vector(self, title_weight = 0.2, summary_weight = 0.6, tags_weight = 0.2):
+	def get_overall_vector(self, title_weight = 0.2, summary_weight = 0.6):
 		""" TODO Find out what kind of product is usefule here... """
 		# v3.x = (v1.x + v2.x) / 2;
 		# overall_vector.x = (self.title_vector.x + self.summary_vector.x + self.tags_vector.x) / 3
@@ -63,5 +54,6 @@ class FeedEntry():
 
 	@staticmethod
 	def remove_words(*args, text):
+		""" TODO"""
 		return text.replace([arg  for arg in args], "")
 
