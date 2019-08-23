@@ -5,7 +5,7 @@ import re
 
 class FeedEntry():
 	""" Data model for a fetched feed entry. """
-	def __init__(self, date, title, summary, tags):
+	def __init__(self, date, title, summary, tags = None):
 		# meta
 		self.date = date
 		# self.country = country # maybe not necessary
