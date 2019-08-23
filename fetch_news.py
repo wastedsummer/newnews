@@ -24,12 +24,16 @@ def get_summaries(feed):
 	return [feed['entries'][i]['summary'] for i in range(len(feed['entries']))]
 
 def get_tags(feed):
-	return [feed['entries'][i]['tags'] for i in range(len(feed['entries']))]
-
-
+	try:
+		return [feed['entries'][i]['tags'] for i in range(len(feed['entries']))]
+	except KeyError:
+		# print("No tags available...\n")
+		return [[{None}] for i in range(len(feed['entries']))]
 
 
 # test
+
+# for source in sources.keys():
 guardian_feed = feedparser.parse(sources['theguardian'])
 
 
@@ -48,8 +52,7 @@ for i in range(len(guardian_feed)):
 	print(test_entry.title)
 	print('\n')
 	print(test_entry.get_summary)
-	print('\n')
+	print('tags:\n')
 	print(test_entry.tags)
 	print('\n')
-	print('\n')
-
+	print('...............\n')
