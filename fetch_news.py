@@ -47,12 +47,13 @@ for i in range(len(guardian_feed)):
 		get_summaries(guardian_feed)[i],
 		get_tags(guardian_feed)[i]
 		)
+# test
 
 
 	print(test_entry.title)
 	print('\n')
 	print(test_entry.get_summary)
 	print('tags:\n')
-	print(test_entry.tags)
-	print('\n')
+	# print(test_entry.tags)
+	# print('\n')
 	print('...............\n')
