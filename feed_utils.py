@@ -3,30 +3,36 @@ import re
 
 
 
+
+
+
+
 class FeedEntry():
 	""" Data model for a fetched feed entry. """
-	def __init__(self, date, title, summary, tags = None):
+	def __init__(self, date, title, summary, title_embedding, summary_embedding, tags = None):
 		# meta
 		self.date = date
 		# self.country = country # maybe not necessary
 		# data
 		self.title = title
 		self.summary = summary
+		self.title_embedding = title_embedding
+		self.summary_embedding = summary_embedding
 		self.tags = tags
 
 
 
 	# how much these affect final vector is a parameter that should be learned	(weighted matmul)
 	@property
-	def get_title_vector(self):
+	def get_title_embedding(self):
 		pass
 
 	@property
-	def get_summary_vector(self):
+	def get_summary_embedding(self):
 		pass
 
 	@property
-	def get_tags_vector(self):
+	def get_tags_embedding(self):
 		pass
 
 
@@ -63,3 +69,23 @@ class FeedEntry():
 	def remove_words(*args, text):
 		return text.replace([arg  for arg in args], "")
 
+
+
+
+
+# @property
+def clear_summary(summary):
+	return clear_html(clear_xml(summary))
+
+
+
+# static methods for parsing
+# @staticmethod
+def clear_xml(text):
+	""" Static helper to remove xml syntax from a string. """
+	return re.sub(u"[^\x20-\x7f]+", u"", text)
+
+# @staticmethod
+def clear_html(text):
+	""" Static helper to remove xml syntax from a string. """
+	return re.sub(re.compile('<.*?>'), '', text)
