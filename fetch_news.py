@@ -81,10 +81,13 @@ newyorktimes_entries = [
 		newyorktimes_summary_embeddings[i]) 
 	for i in range(len(newyorktimes_feed))]
 
+if (str(now.date()) not in timeline['newyorktimes'].keys()):
+	timeline['newyorktimes'][str(now.date())] = []
 for entry in newyorktimes_entries:
-	if entry.title not in [existing_entry.title for existing_entry in timeline['newyorktimes'][str(now.date())]]:
+	if (entry.title not in [existing_entry.title for existing_entry in timeline['newyorktimes'][str(now.date())]]):
 		timeline['newyorktimes'][str(now.date())].append(entry)
 		print("entry appended")
+	
 	else:
 		print("skipping...already exists")
 
@@ -104,7 +107,8 @@ aljazeera_entries = [
 		aljazeera_title_embeddings[i],
 		aljazeera_summary_embeddings[i]) 
 	for i in range(len(aljazeera_feed))]
-
+if (str(now.date()) not in timeline['aljazeera'].keys()):
+	timeline['aljazeera'][str(now.date())] = []
 for entry in aljazeera_entries:
 	if entry.title not in [existing_entry.title for existing_entry in timeline['aljazeera'][str(now.date())]]:
 		timeline['aljazeera'][str(now.date())].append(entry)
@@ -127,7 +131,8 @@ bbc_entries = [
 		bbc_title_embeddings[i],
 		bbc_summary_embeddings[i]) 
 	for i in range(len(bbc_feed))]
-
+if (str(now.date()) not in timeline['bbc'].keys()):
+	timeline['bbc'][str(now.date())] = []
 for entry in bbc_entries:
 	if entry.title not in [existing_entry.title for existing_entry in timeline['bbc'][str(now.date())]]:
 		timeline['bbc'][str(now.date())].append(entry)
@@ -152,7 +157,8 @@ guardian_entries = [
 		guardian_title_embeddings[i],
 		guardian_summary_embeddings[i]) 
 	for i in range(len(guardian_feed))]
-
+if (str(now.date()) not in timeline['theguardian'].keys()):
+	timeline['theguardian'][str(now.date())] = []
 for entry in guardian_entries:
 	if entry.title not in [existing_entry.title for existing_entry in timeline['theguardian'][str(now.date())]]:
 		timeline['theguardian'][str(now.date())].append(entry)
@@ -177,7 +183,8 @@ reuters_entries = [
 		reuters_title_embeddings[i],
 		reuters_summary_embeddings[i]) 
 	for i in range(len(reuters_feed))]
-
+if (str(now.date()) not in timeline['reuters'].keys()):
+	timeline['reuters'][str(now.date())] = []
 for entry in reuters_entries:
 	if entry.title not in [existing_entry.title for existing_entry in timeline['reuters'][str(now.date())]]:
 		timeline['reuters'][str(now.date())].append(entry)
